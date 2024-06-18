@@ -1,0 +1,29 @@
+<div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">Интернет магазин 'HomeNS'</h4>
+                <p class="text-muted">Аналог всем известного магазина, с созвучным названием.
+                Только у нас товары дешевле, т.к. привезены из Китая, но качество абсолютно такое же.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Навигация</h4>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'catalog:products_list' %}" class="text-white">Главная</a></li>
+                    <li><a href="{% url 'catalog:contacts' %}" class="text-white">Контакты</a></li>
+                    <li><a href="#" class="text-white">Вход в личный кабинет</a></li>
+                    <li><a href="#" class="text-white">Регистрация</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+        <a class="text-white">Меню</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>

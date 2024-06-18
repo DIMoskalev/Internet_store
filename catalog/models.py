@@ -14,9 +14,10 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name="Описание",
         help_text="Введите описание продукта",
+        **NULLABLE,
     )
     image = models.ImageField(
-        upload_to="products/",
+        upload_to="products/image",
         verbose_name="Изображение(превью)",
         help_text="Загрузите изображение(превью) продукта",
         **NULLABLE,
@@ -36,12 +37,12 @@ class Product(models.Model):
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
-        # editable=False,
+        editable=False,
         verbose_name="Дата создания",
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        # editable=False,
+        editable=False,
         verbose_name="Дата последнего изменения",
     )
 
