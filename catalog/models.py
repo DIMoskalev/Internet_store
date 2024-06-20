@@ -79,3 +79,26 @@ class Category(models.Model):
             "name",
             "description",
         ]
+
+#
+# class Contact(models.Model):
+#     name = models.CharField(
+#         max_length=100,
+#         verbose_name="Имя",
+#     )
+#     phone = models.CharField(
+#         max_length=50,
+#         verbose_name="Телефон",
+#         **NULLABLE,
+#     )
+#     message = models.TextField(
+#         verbose_name="Сообщение",
+#         **NULLABLE,
+#     )
+#
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name = "Контакт"
+#         verbose_name_plural = "Контакты"
