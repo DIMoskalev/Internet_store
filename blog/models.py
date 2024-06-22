@@ -3,10 +3,10 @@ from django.db import models
 NULLABLE = {"blank": True, "null": True}
 
 
-class BlogArticle(models.Model):
+class Blog(models.Model):
     title = models.CharField(max_length=100, verbose_name="Заголовок", help_text="Введите заголовок статьи")
     slug = models.CharField(max_length=150, verbose_name='slug', **NULLABLE)
-    content = models.TextField(verbose_name="Текст статьи", help_text="Введите текст статьи")
+    text = models.TextField(verbose_name="Текст статьи", help_text="Введите текст статьи")
     preview = models.ImageField(upload_to="products/image", verbose_name="Изображение",
                                 help_text="Добавьте изображение товара", **NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
