@@ -80,6 +80,33 @@ class Category(models.Model):
             "description",
         ]
 
+
+class Version(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name="Продукт",
+        related_name="versions",
+    )
+    version_number = models.PositiveIntegerField(
+        verbose_name="Номер версии", **NULLABLE
+    )
+    name = models.CharField(max_length=150, verbose_name="Название версии", **NULLABLE)
+    is_active = models.BooleanField(default=True, verbose_name="Активная версия")
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name = "Версия"
+        verbose_name_plural = "Версии"
+        ordering = [
+            "product",
+            "version_number",
+            "name",
+        ]
+
+
 #
 # class Contact(models.Model):
 #     name = models.CharField(
