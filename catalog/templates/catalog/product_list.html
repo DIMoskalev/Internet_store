@@ -25,6 +25,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        {% if product.active_version != 'Нет активной версии' %}
+                        Версия: {{ product.active_version }}
+                        {% else %}
+                        Нет активной версии
+                        {% endif %}
+                        {% if product.number_version %}
+                        Номер версии: {{ product.number_version }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
