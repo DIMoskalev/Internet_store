@@ -30,10 +30,10 @@ class Product(models.Model):
         related_name="products",
         **NULLABLE,
     )
-    price_per_purchase = models.DecimalField(
+    price = models.DecimalField(
         max_digits=8,
         decimal_places=2,
-        verbose_name="Цена за покупку",
+        verbose_name="Цена",
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
