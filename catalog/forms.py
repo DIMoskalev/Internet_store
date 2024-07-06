@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import BooleanField
 
 from catalog.models import Product, Version
 
