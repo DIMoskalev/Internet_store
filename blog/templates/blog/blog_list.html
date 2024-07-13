@@ -3,9 +3,11 @@
 {% block content %}
 <div class="album py-5 bg-light">
     <div class="container">
+        {% if user.is_authenticated %}
         <p>
             <a class="btn btn-outline-primary" href="{% url 'blog:blog_create' %}">Создать запись</a>
         </p>
+        {% endif %}
         <div class="row align-items-start">
             {% for blog in object_list %}
             <div class="col-md-4">
