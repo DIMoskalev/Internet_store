@@ -14,7 +14,7 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ['owner',]
+        exclude = ['owner', ]
 
     def clean_name(self):
         cleaned_data = self.cleaned_data['name']
@@ -33,6 +33,12 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
             if banned_word in cleaned_data.lower():
                 raise forms.ValidationError(f'Нельзя использовать слово "{banned_word}" для описания товара')
         return cleaned_data
+
+
+class ProductModerationForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['is_published', 'description', 'category']
 
 
 class VersionForm(StyleFormMixin, forms.ModelForm):
