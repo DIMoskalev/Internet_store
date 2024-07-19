@@ -5,11 +5,12 @@
     "fields": {
       "name": "Оперативная память DDR4 16Gb",
       "description": "Частота - 3200Mhz\r\nТайминги -  16.20.20.38",
-      "image": "",
+      "image": "products/image/оперативная_память.jpeg",
       "category": 1,
-      "price_per_purchase": "6000.00",
+      "price": "6000.00",
       "created_at": "2024-06-08T14:20:33.590Z",
-      "updated_at": "2024-06-08T14:20:33.590Z"
+      "updated_at": "2024-07-13T18:04:52.446Z",
+      "owner": 1
     }
   },
   {
@@ -18,11 +19,12 @@
     "fields": {
       "name": "Монитор 27\"",
       "description": "Китайский монитор диагональю 27 дюймов\r\nРазрешение 2K (1440p)\r\nЧастота - 165 Гц",
-      "image": "",
+      "image": "products/image/монитор.jpg",
       "category": 2,
-      "price_per_purchase": "23000.00",
+      "price": "23000.00",
       "created_at": "2024-06-08T14:21:54.699Z",
-      "updated_at": "2024-06-08T14:21:54.699Z"
+      "updated_at": "2024-07-13T18:04:43.254Z",
+      "owner": 1
     }
   },
   {
@@ -31,11 +33,12 @@
     "fields": {
       "name": "Стиральная машина 5кг",
       "description": "Максимальная загрузка - 5кг\r\nОчень много полезных функций: легкая глажка, освежить белье и т.д.\r\nХорошая Китайская стиральная машина",
-      "image": "",
+      "image": "products/image/Стиральная_машина.jpg",
       "category": 3,
-      "price_per_purchase": "45499.00",
+      "price": "45499.00",
       "created_at": "2024-06-08T14:23:21.757Z",
-      "updated_at": "2024-06-08T14:23:21.757Z"
+      "updated_at": "2024-07-13T18:04:58.400Z",
+      "owner": 1
     }
   },
   {
@@ -60,6 +63,26 @@
     "fields": {
       "name": "Бытовая техника",
       "description": "В данной категории представлены все виды бытовой техники для дома"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 1,
+    "fields": {
+      "product": 2,
+      "version_number": 1,
+      "name": "старт",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "version_number": 1,
+      "name": "Ранняя",
+      "is_active": true
     }
   }
 ]

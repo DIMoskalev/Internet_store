@@ -1,0 +1,46 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="album py-5 bg-light">
+    <div class="container">
+        {% if user.is_authenticated %}
+        <p>
+            <a class="btn btn-outline-primary" href="{% url 'catalog:create_product' %}">Создать продукт</a>
+        </p>
+        {% endif %}
+        <div class="row">
+            {% for product in object_list %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img src="{{ product.image | media_filter }}">
+                    <div class="card-body">
+                        <p class="card-text">{{ product.name }}</p>
+                        <p class="card-text">{{ product.description | truncatechars:100}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'catalog:product_detail' product.pk %}" role="button"
+                                   class="btn btn-sm btn-outline-info">Посмотреть</a>
+                                <a href="{% url 'catalog:update_product' product.pk %}" role="button"
+                                   class="btn btn-sm btn-outline-primary">Редактировать</a>
+                                <a href="{% url 'catalog:delete_product' product.pk %}" role="button"
+                                   class="btn btn-sm btn-outline-danger">Удалить</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        {% if product.active_version != 'Нет активной версии' %}
+                        Версия: {{ product.active_version }}
+                        {% else %}
+                        Нет активной версии
+                        {% endif %}
+                        {% if product.number_version %}
+                        Номер версии: {{ product.number_version }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
