@@ -1,10 +1,15 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-_6$#ecymyxobwwb2y7u*8zj@zrbvh^$x@a_h%g%7iem(aq&7g-'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG", False) == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,11 +58,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'internet_store',
-        'USER': 'postgres',
-        'HOST': 'localhost',
-        'PORT': 5432,
-        'PASSWORD': '1111'
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
+        'PASSWORD': os.getenv('PASSWORD'),
     }
 }
 
@@ -95,13 +100,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'botbotovichtest@mail.ru'
-EMAIL_HOST_PASSWORD = 'vabTxCv6cUrLjEy7XKDK'
-EMAIL_USE_SSL = True
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', False) == 'True'
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'users:login'
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': os.getenv('LOCATION'),
+        }
+    }
